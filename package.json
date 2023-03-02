@@ -2,7 +2,7 @@
   "name": "router-auth",
   "version": "1.0.0",
   "description": "node 实现完整的 JWT 登录流程",
-  "main": "index.js",
+  "main": "app.ts",
   "scripts": {
     "dev": "ts-node-dev ./app.ts"
   },
