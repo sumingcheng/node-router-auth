@@ -1,0 +1,36 @@
+{
+  "name": "router-auth",
+  "version": "1.0.0",
+  "description": "node 实现完整的 JWT 登录流程",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev ./app.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumingcheng/node-router-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sumingcheng/node-router-auth/issues"
+  },
+  "homepage": "https://github.com/sumingcheng/node-router-auth#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.0",
+    "typescipt": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/express": "^4.17.17",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^18.14.2",
+    "ts-node-dev": "^2.0.0"
+  }
+}
