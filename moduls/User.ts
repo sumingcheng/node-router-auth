@@ -10,8 +10,14 @@ async function getUserList() {
     return UserModel.find()
 }
 
+async function getUser(username: string) {
+    return UserModel.findOne({ username })
+}
+
+
 // 为了区分哪些方法是操作数据的，要给它一个单独的命名空间进行管理
 export default {
     addUser,
-    getUserList
+    getUserList,
+    getUser
 }

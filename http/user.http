@@ -9,7 +9,7 @@ post {{ BASE_URL }}/register
 {{ CONTENT_TYPE }}
 
 {
-  "username": "xiaoyesensen2",
+  "username": "adminNB1",
   "password": "12345678"
 }
 
@@ -18,8 +18,8 @@ post {{ BASE_URL }}/login
 {{ CONTENT_TYPE }}
 
 {
-  "username": "xiaoyesensen",
-  "password": "123456"
+  "username": "adminNB1",
+  "password": "12345678"
 }
 
 ### 获取个人信息API
