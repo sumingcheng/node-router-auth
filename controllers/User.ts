@@ -6,19 +6,32 @@ export interface IUserInfo {
     password: string,
 }
 
+export async function getUserList(req: Request, res: Response) {
+    const users = await UserModel.getUserList();
+    res.status(200).json(users)
+}
+
 export async function register(req: Request, res: Response) {
     const { username, password }: IUserInfo = req.body
+
+    if (username === undefined || password === undefined) {
+        return res.status(200).json({
+            err_code: 1001,
+            err_msg: '请输入用户名或密码'
+        })
+    }
+
     if (username.length < 6 || password.length < 6) {
         return res.status(403).json({
             err_code: 1001,
             err_msg: 'Invalid username or password length'
         })
     }
+
     try {
         const user = await UserModel.addUser({
             username, password
         })
-
         res.status(200).json({
             err_code: 0,
             err_msg: 'ok',

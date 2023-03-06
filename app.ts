@@ -5,6 +5,6 @@ const app = express()
 
 app.use(userRouter)
 
-app.listen(8888, () => {
-    console.log('服务运行在：http://localhost:8888')
+app.listen(8000, () => {
+    console.log('服务运行在：http://localhost:8000')
 })
