@@ -1,21 +1,24 @@
-import * as mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 export default function dbConnect() {
-    mongoose.set('strictQuery', false)
+    mongoose.set('strictQuery', false);
     mongoose.connect(
-        'mongodb://127.0.0.1:27017/test',
-    )
+        'mongodb://127.0.0.1:27017/test'
+    );
+
     const db = mongoose.connection;
 
     db.on('error', (err) => {
-        console.log(err)
-    })
-    db.on('close', () => {
-        console.log('Database close')
-    })
-    db.on('open', () => {
-        console.log('Database open')
-    })
+        console.log('Database connect error', err);
+    });
 
-    return db
+    db.on('close', () => {
+        console.log('Database closed');
+    });
+
+    db.on('open', () => {
+        console.log('Database opened');
+    });
+
+    return db;
 }

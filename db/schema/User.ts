@@ -1,16 +1,15 @@
-import bcrypt from 'bcrypt'
-import { Schema } from 'mongoose'
+import bcrypt from 'bcrypt';
+import { Schema } from 'mongoose';
 
 export default new Schema({
     username: {
         type: String,
-        unique: true,
+        unique: true
     },
     password: {
         type: String,
         set(val: string) {
-            // 数据加密
-            return bcrypt.hashSync(val, 10)
+            return bcrypt.hashSync(val, 10);
         }
     },
     is_admin: {
@@ -23,6 +22,6 @@ export default new Schema({
     },
     createAt: {
         type: Date,
-        default: Date.now()
+        default: Date.now
     }
-})
+});
