@@ -76,11 +76,10 @@ export async function login(req: Request, res: Response) {
     }
 
     const userToken = jwt.sign(
-        { id: String(userInfo._id) }, SECRET_KEY!, { expiresIn: '60s' }
+        { id: String(userInfo._id) }, SECRET_KEY!, { expiresIn: '2h' }
     )
 
     // 登录成功 返回 username token level
-
     res.status(200).json({
         msg: 'ok',
         data: {
@@ -92,7 +91,13 @@ export async function login(req: Request, res: Response) {
 }
 
 export async function getProfile(req: Request, res: Response) {
+    const { id } = req
+
+    const userInfo = await UserModel.getProfile(id!);
+
     res.status(200).json({
-        msg: 'getProfile'
+        err_code: 0,
+        err_msg: 'ok',
+        data: userInfo
     })
 }

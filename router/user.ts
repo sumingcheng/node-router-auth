@@ -9,8 +9,9 @@ const jsonParser = bodyParser.json();
 
 // api
 // 请求register,使用jsonParser解析json数据，进入下一个中间件
+router.get('/api/user/getUserList', getUserList)
+// post
 router.post('/api/user/register', jsonParser, register)
 router.post('/api/user/login', jsonParser, login)
 router.post('/api/user/profile', jsonParser, checkAuth, getProfile)
-router.get('/api/user/getUserList', getUserList)
 export default router

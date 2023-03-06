@@ -9,7 +9,7 @@ post {{ BASE_URL }}/register
 {{ CONTENT_TYPE }}
 
 {
-  "username": "adminNB1",
+  "username": "adminNB2",
   "password": "12345678"
 }
 
@@ -18,10 +18,10 @@ post {{ BASE_URL }}/login
 {{ CONTENT_TYPE }}
 
 {
-  "username": "adminNB1",
+  "username": "adminNB2",
   "password": "12345678"
 }
 
 ### 获取个人信息API
 post {{ BASE_URL }}/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjYxYjNkNWViNTVlMWRlMjVjZTBhMCIsImlhdCI6MTY3NzA3NjA3NiwiZXhwIjoxNjc3MDc2MTM2fQ.lhnqrJ2erBT3UT9j6Iy0b9-lwoOOE5WAmpoyRrUigrQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MDY3NTU1YmU5OWFiM2UzOTQ1N2FkYSIsImlhdCI6MTY3ODE0NjA3NiwiZXhwIjoxNjc4MTUzMjc2fQ.c-jegDboe7laK2tmBSZupXL50-me2Pkk0ysoW15wdA8
