@@ -24,4 +24,4 @@ post {{ BASE_URL }}/login
 
 ### 获取个人信息API
 post {{ BASE_URL }}/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MDY3NTU1YmU5OWFiM2UzOTQ1N2FkYSIsImlhdCI6MTY3ODE0NjA3NiwiZXhwIjoxNjc4MTUzMjc2fQ.c-jegDboe7laK2tmBSZupXL50-me2Pkk0ysoW15wdA8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MDY3NTU1YmU5OWFiM2UzOTQ1N2FkYSIsImlhdCI6MTY3ODE0Njg5NiwiZXhwIjoxNjc4MTU0MDk2fQ.jdFUY9hFtz-OhJlp2r2FMtCf4j9ZJAXBlCwC35ek0og

@@ -20,20 +20,6 @@ export async function getUserList(req: Request, res: Response) {
 export async function register(req: Request, res: Response) {
     const { username, password }: IUserInfo = req.body
 
-    if (username === undefined || password === undefined) {
-        return res.status(200).json({
-            err_code: 1001,
-            err_msg: '请输入用户名或密码'
-        })
-    }
-
-    if (username.length < 6 || password.length < 6) {
-        return res.status(403).json({
-            err_code: 1001,
-            err_msg: 'Invalid username or password length'
-        })
-    }
-
     try {
         const user = await UserModel.addUser({
             username, password
@@ -44,7 +30,7 @@ export async function register(req: Request, res: Response) {
             data: user
         })
     } catch (e) {
-        res.status(403).json({
+        res.status(200).json({
             err_code: 1002,
             err_msg: 'The username existed in database'
         })
@@ -57,10 +43,11 @@ export async function register(req: Request, res: Response) {
 
 export async function login(req: Request, res: Response) {
     const { username, password }: IUserInfo = req.body
+
     const userInfo = await UserModel.getUser(username)
     // 校验用户是否存在
     if (!userInfo) {
-        return res.status(403).json({
+        return res.status(200).json({
             err_code: 1003,
             err_msg: 'The username does not exist in database'
         })
@@ -69,7 +56,7 @@ export async function login(req: Request, res: Response) {
     const isValidPassword = bcrypt.compareSync(password, userInfo.password!)
 
     if (!isValidPassword) {
-        return res.status(403).json({
+        return res.status(200).json({
             err_code: 1004,
             err_msg: 'Got a wrong password'
         })
