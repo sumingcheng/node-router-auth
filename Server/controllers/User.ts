@@ -35,10 +35,6 @@ export async function register(req: Request, res: Response) {
             err_msg: 'The username existed in database'
         })
     }
-
-    res.status(200).json({
-        msg: 'register'
-    })
 }
 
 export async function login(req: Request, res: Response) {
@@ -77,9 +73,16 @@ export async function login(req: Request, res: Response) {
     })
 }
 
+// 路由变更 checkLogin
+export async function checkLogin(req: Request, res: Response) {
+    res.status(200).json({
+        err_code: 200,
+        err_msg: 0
+    })
+}
+
 export async function getProfile(req: Request, res: Response) {
     const { id } = req
-
     const userInfo = await UserModel.getProfile(id!);
 
     res.status(200).json({

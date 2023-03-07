@@ -1,7 +1,7 @@
 import { Router } from "express";
 import bodyParser from 'body-parser';
 import { checkAuth, checkBody } from "../middlewares/user";
-import { getProfile, getUserList, login, register } from "../controllers/User";
+import { checkLogin, getProfile, getUserList, login, register } from "../controllers/User";
 
 const router = Router()
 // 解析post
@@ -14,4 +14,5 @@ router.get('/api/user/getUserList', getUserList)
 router.post('/api/user/register', jsonParser, checkBody, register)
 router.post('/api/user/login', jsonParser, checkBody, login)
 router.post('/api/user/profile', jsonParser, checkAuth, getProfile)
+router.post('/api/user/checkLogin', jsonParser, checkAuth, checkLogin)
 export default router
