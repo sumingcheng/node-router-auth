@@ -8,3 +8,7 @@ export interface IResponse {
     err_msg: string,
     data?: object
 }
+
+export interface ICommon {
+    [key: string]: string
+}

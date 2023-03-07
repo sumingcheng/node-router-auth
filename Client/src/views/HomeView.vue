@@ -6,7 +6,14 @@
 </template>
 
 <script lang="ts" setup>
-const logOut = () => {
+import { useRouter } from 'vue-router'
+import { userStorage } from "@/hooks/user";
 
+const router = useRouter()
+const { removeUserStorage } = userStorage()
+
+const logOut = () => {
+  removeUserStorage()
+  router.push('/login')
 }
 </script>

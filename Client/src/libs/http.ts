@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Storage } from "@/libs/utils";
 
-axios.defaults.baseURL = process.env.VUE_APP_API_BASE_URL
+axios.defaults.baseURL = 'http://localhost:8000'
 
 axios.interceptors.request.use(config => {
     const access_token = Storage.get('access_token')

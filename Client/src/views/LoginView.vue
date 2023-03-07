@@ -21,7 +21,35 @@
 </template>
 
 <script lang="ts" setup>
-const submitLogin = () => {
+import { userLogin, userStorage } from "@/hooks/user";
+import errorHandler from "@/config/errorHandler";
+import { useRouter } from "vue-router";
 
+const { username, password, checkUserInfo, submitUserInfo } = userLogin()
+const { setUserStorage, removeUserStorage } = userStorage()
+const router = useRouter()
+const submitLogin = async () => {
+  if (!checkUserInfo(username, 6)) {
+    alert('用户名长度不小于6位')
+    return
+  }
+  if (!checkUserInfo(password, 6)) {
+    alert('密码长度不小于6位')
+    return
+  }
+
+  try {
+    const { err_code, data }: any = await submitUserInfo()
+    if (err_code) {
+      alert(errorHandler[err_code])
+      return
+    }
+    // 登录成功
+    setUserStorage(data.access_token, data.level)
+
+    router.push('./')
+  } catch (e) {
+    alert('登录失败')
+  }
 }
 </script>

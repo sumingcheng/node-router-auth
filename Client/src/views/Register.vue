@@ -27,8 +27,36 @@
   </div>
 </template>
 <script lang="ts" setup>
-const submitRegister = () => {
+import { userRegister } from "@/hooks/user";
+import { useRouter } from "vue-router";
+import errorHandler from "@/config/errorHandler";
 
+const router = useRouter()
+const { username, password, rePassword, submitUserInfo, comparePassword, checkUserInfo } = userRegister()
 
+const submitRegister = async () => {
+
+  if (!checkUserInfo(username, 6)) {
+    alert('用户名长度不小于6位')
+    return
+  }
+  if (!checkUserInfo(password, 6)) {
+    alert('密码长度不小于6位')
+    return
+  }
+  if (!comparePassword()) {
+    alert('两次密码不一致')
+  }
+
+  try {
+    const { err_code } = await submitUserInfo()
+    if (err_code) {
+      alert(errorHandler[err_code])
+    }
+
+    router.push('/login')
+  } catch (e) {
+    alert('注册失败')
+  }
 }
 </script>
