@@ -76,8 +76,8 @@ export async function login(req: Request, res: Response) {
 // 路由变更 checkLogin
 export async function checkLogin(req: Request, res: Response) {
     res.status(200).json({
-        err_code: 200,
-        err_msg: 0
+        err_code: 0,
+        err_msg: 'ok'
     })
 }
 
