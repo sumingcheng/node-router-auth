@@ -5,20 +5,20 @@
 1. 安装
 
 ```
-npm i express mongoose typescipt bcrypt jsonwebtoken dotenv
+    npm i express mongoose typescipt bcrypt jsonwebtoken dotenv
 ```
 
 2. 安装类型注解，因为要使用到TS
 
 ```
-npm i ts-node-dev @types/express @types/mongoose @types/node @types/jsonwebtoken @types/bcrypt -D
+    npm i ts-node-dev @types/express @types/mongoose @types/node @types/jsonwebtoken @types/bcrypt -D
 ```
 
 3. 初始化TS配置文件
 
 ```
-npm install -g typescript
-tsc --init
+    npm install -g typescript
+    tsc --init
 ```
 
 ## 依赖说明
@@ -46,11 +46,15 @@ http 请求可以在 authorization : Bearer + token
 
 1. 创建项目 选择 Vue3 和 TS
 
+```text
     npm install -g @vue/cli
     vue create xxx
+```
 
 2. 安装 Axios
 
+```text
     npm i axios
+```
 
 
