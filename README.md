@@ -44,12 +44,12 @@ http 请求可以在 authorization : Bearer + token
 
 ### 客户端端构建流程
 
-创建项目 选择 Vue3 和 TS
+1. 创建项目 选择 Vue3 和 TS
 
     npm install -g @vue/cli
     vue create xxx
 
-安装 Axios
+2. 安装 Axios
 
     npm i axios
 
