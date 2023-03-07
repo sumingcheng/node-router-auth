@@ -23,7 +23,7 @@ tsc --init
 
 ## 依赖说明
 
-password：MD5(MD5(password) + salt)
+password：MD5( MD5(password) + salt)
 salt 在每次登录验证完毕后，就动态更改
 bcrypt 是加密算法工具，满足我们多种加密需求
 
@@ -34,7 +34,7 @@ bcrypt 是加密算法工具，满足我们多种加密需求
     "dotenv": "^16.0.3",
 
 HEADER+PAYLOAD+KEY = 生成 token
-http请求可以在authorization:Bearer + token
+http 请求可以在 authorization : Bearer + token
 
     "jsonwebtoken": "^9.0.0",
 
