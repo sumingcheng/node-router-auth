@@ -50,7 +50,7 @@ http请求可以在authorization:Bearer + token
     npm install -g @vue/cli
     vue create xxx
 
-安装Axios
+安装 Axios
 
     npm i axios
 
