@@ -55,6 +55,8 @@ const submitLogin = async () => {
 }
 </script>
 <style scoped lang="scss">
-
+.home {
+  margin: 0 auto;
+}
 
 </style>
