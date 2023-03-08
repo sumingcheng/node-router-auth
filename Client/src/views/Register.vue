@@ -23,7 +23,7 @@
       >
     </p>
     <router-link to="/login">返回登录页</router-link>
-    <button @click="submitRegister">注册</button>
+    <el-button @click="submitRegister">注册</el-button>
   </div>
 </template>
 <script lang="ts" setup>
@@ -49,7 +49,7 @@ const submitRegister = async () => {
   }
 
   try {
-    const { err_code } = await submitUserInfo()
+    const { err_code }: any = await submitUserInfo()
     if (err_code) {
       alert(errorHandler[err_code])
     }

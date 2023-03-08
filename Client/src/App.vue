@@ -15,7 +15,7 @@ router.beforeEach(async (to, from) => {
   const { removeUserStorage } = userStorage()
 
   if (accessToken) {
-    const { err_code } = await checkLoginService()
+    const { err_code }: any = await checkLoginService()
 
     // 校验token并且判断
     if (err_code && to.name === 'home') {

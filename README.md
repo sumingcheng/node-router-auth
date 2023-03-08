@@ -1,4 +1,4 @@
-# node 实现后台 Vue3 + TS 实现客户端
+# Node 实现后台 Vue3 + TS 实现客户端
 
 # 服务端构建流程
 
@@ -42,7 +42,7 @@ http 请求可以在 authorization : Bearer + token
 
     "mongoose": "^7.0.0",
 
-### 客户端端构建流程
+## 客户端端构建流程
 
 1. 创建项目 选择 Vue3 和 TS
 

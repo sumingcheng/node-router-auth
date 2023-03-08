@@ -16,9 +16,10 @@
       >
     </p>
     <router-link to="/register">去注册页</router-link>
-    <button @click="submitLogin">登录</button>
+    <el-button @click="submitLogin">登录</el-button>
   </div>
 </template>
+
 
 <script lang="ts" setup>
 import { userLogin, userStorage } from "@/hooks/user";
@@ -53,3 +54,7 @@ const submitLogin = async () => {
   }
 }
 </script>
+<style scoped lang="scss">
+
+
+</style>
