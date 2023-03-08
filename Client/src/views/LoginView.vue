@@ -47,7 +47,7 @@ const submitLogin = async () => {
     // 登录成功
     setUserStorage(data.access_token, data.level)
 
-    router.push('./')
+    await router.push('./')
   } catch (e) {
     alert('登录失败')
   }

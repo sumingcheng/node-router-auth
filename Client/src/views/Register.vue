@@ -54,7 +54,7 @@ const submitRegister = async () => {
       alert(errorHandler[err_code])
     }
 
-    router.push('/login')
+    await router.push('/login')
   } catch (e) {
     alert('注册失败')
   }
