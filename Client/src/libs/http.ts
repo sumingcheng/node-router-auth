@@ -1,9 +1,14 @@
 import axios from "axios";
 import { Storage } from "@/libs/utils";
 
-axios.defaults.baseURL = 'http://localhost:8000'
+const service = axios.create({
+    // axios中请求配置有baseURL选项，表示请求URL公共部分
+    baseURL: process.env.VUE_APP_API_BASE_URL,
+    // 超时
+    timeout: 10000
+})
 
-axios.interceptors.request.use(config => {
+service.interceptors.request.use(config => {
     const access_token = Storage.get('access_token')
 
     if (access_token) {
@@ -13,8 +18,8 @@ axios.interceptors.request.use(config => {
     return config
 }, error => Promise.reject(error))
 
-axios.interceptors.response.use(response => {
+service.interceptors.response.use(response => {
     return response.data
 }, error => Promise.reject(error))
 
-export default axios
+export default service
