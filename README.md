@@ -1,4 +1,4 @@
-![npm version](https://img.shields.io/badge/typescipt-1.0.0-green)
+![npm version](https://img.shields.io/badge/typescipt-4.5.0-green)
 ![npm version](https://img.shields.io/badge/mongoose-7.0.0-green)
 ![npm version](https://img.shields.io/badge/jsonwebtoken-9.0.0-green)
 ![npm version](https://img.shields.io/badge/express-4.18.2-green)
