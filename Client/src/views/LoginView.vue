@@ -6,7 +6,7 @@
     </h2>
     <div class="main">
       <h1>Welcome Back</h1>
-      <h5>欢迎：请输入你的用户名和密码</h5>
+      <h5>请输入你的用户名和密码</h5>
       <div>
         <div class="title">用户名</div>
         <el-input
