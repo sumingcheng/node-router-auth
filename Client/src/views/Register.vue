@@ -44,6 +44,7 @@
   <div>
   </div>
 </template>
+
 <script lang="ts" setup>
 import login from './../assets/logo.png'
 import { userRegister } from "@/hooks/user";
