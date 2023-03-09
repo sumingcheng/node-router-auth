@@ -1,6 +1,7 @@
 import { reactive, Ref, toRefs } from "vue";
 import { loginService, registerService } from "@/services/User";
 import { Storage } from "@/libs/utils";
+import { ElMessage } from "element-plus";
 
 function checkUserInfo(field: Ref, num: number): boolean {
     return field.value.length >= num
@@ -38,6 +39,29 @@ export function userStorage() {
 
     return {
         setUserStorage, removeUserStorage
+    }
+}
+
+export function rememberUser() {
+    const setUser = (username: string): boolean => {
+        if (username) {
+            Storage.set('username', username)
+            return true
+        } else {
+            ElMessage({ message: '请先输入用户名', type: 'warning', })
+            return false
+        }
+    }
+    const removeUser = () => {
+        Storage.remove('username')
+    }
+    const getUser = (): [ boolean, string | null ] => {
+        return [ true, Storage.get('username') ]
+    }
+    return {
+        setUser,
+        removeUser,
+        getUser
     }
 }
 

@@ -26,7 +26,7 @@
     </div>
     <div class="footer">
       <div class="fl_bt">
-        <el-switch v-model="value1" class="switch"/>
+        <el-switch v-model="value1" class="switch" @change="rememberMe"/>
         <router-link to="/register" class="link">去注册</router-link>
       </div>
       <div class="btn">
@@ -43,29 +43,30 @@
 
 <script lang="ts" setup>
 import login from './../assets/logo.png'
-import { userLogin, userStorage } from "@/hooks/user";
+import { rememberUser, userLogin, userStorage } from "@/hooks/user";
 import errorHandler from "@/config/errorHandler";
 import { useRouter } from "vue-router";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { ElMessage } from "element-plus";
 
 const { username, password, checkUserInfo, submitUserInfo } = userLogin()
 const { setUserStorage, removeUserStorage } = userStorage()
 const router = useRouter()
+
 const submitLogin = async () => {
   if (!checkUserInfo(username, 6)) {
-    alert('用户名长度不小于6位')
+    ElMessage({ message: '密码长度不小于6位', type: 'warning', })
     return
   }
   if (!checkUserInfo(password, 6)) {
-    alert('密码长度不小于6位')
+    ElMessage({ message: '密码长度不小于6位', type: 'warning', })
     return
   }
 
   try {
     const { err_code, data }: any = await submitUserInfo()
     if (err_code) {
-      alert(errorHandler[err_code])
+      ElMessage({ message: errorHandler[err_code], type: 'warning', })
       return
     }
     // 登录成功
@@ -76,12 +77,28 @@ const submitLogin = async () => {
     })
     await router.push('./')
   } catch (e) {
-    alert('登录失败')
+    ElMessage({ message: '登录失败', type: 'warning', })
   }
 }
 
 // 表单内容
-const value1 = ref(true)
+const { setUser, removeUser, getUser } = rememberUser()
+let value1 = ref(true)
+
+onMounted(() => {
+  const [ existence, value ]: [ boolean, string | null ] = getUser()
+  value1.value = existence
+  username.value = value ? value : '';
+});
+
+const rememberMe = () => {
+  if (value1.value) {
+    value1.value = setUser(username.value)
+  } else {
+    removeUser()
+  }
+}
+
 </script>
 <style scoped lang="scss">
 @import "../assets/login";

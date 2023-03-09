@@ -57,21 +57,21 @@ const { username, password, rePassword, submitUserInfo, comparePassword, checkUs
 const submitRegister = async () => {
 
   if (!checkUserInfo(username, 6)) {
-    alert('用户名长度不小于6位')
+    ElMessage({ message: `用户名长度不小于6位`, type: 'warning', })
     return
   }
   if (!checkUserInfo(password, 6)) {
-    alert('密码长度不小于6位')
+    ElMessage({ message: `密码长度不小于6位`, type: 'warning', })
     return
   }
   if (!comparePassword()) {
-    alert('两次密码不一致')
+    ElMessage({ message: `两次密码不一致`, type: 'warning', })
   }
 
   try {
     const { err_code, data }: any = await submitUserInfo()
     if (err_code) {
-      alert(errorHandler[err_code])
+      ElMessage({ message: errorHandler[err_code], type: 'warning', })
     }
 
     ElMessage({
@@ -80,7 +80,7 @@ const submitRegister = async () => {
     })
     await router.push('/login')
   } catch (e) {
-    alert('注册失败')
+    ElMessage({ message: '注册失败', type: 'warning', })
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <a href="javascript:;" @click="logOut">退出登录</a>
+    <el-button @click="logOut" size="large" class="btnStyle">退出登录</el-button>
   </div>
 </template>
 
